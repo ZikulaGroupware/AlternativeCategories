@@ -38,18 +38,20 @@ abstract class AlternativeCategories_Entity_Membership extends Zikula_EntityAcce
     private $id;
     
     
-        /**
+    /**
      * The following are annotations which define the id field.
      *
      * @ORM\Column(type="integer")
      */
     private $categoryId;
     
-    
     public function __construct($category, $entity) {
         $this->categoryId = $category;
-        $this->entity     = $entity;
+        $this->setEntity($entity);
     }
+     
+    
+    public abstract function setEntity($entity);
 
     
 }
